@@ -1,0 +1,2 @@
+#Pull AD user info into csv
+Get-ADUser -Filter 'enabled -eq $true' -SearchBase "OU=Users,OU=Ditesco,DC=ditescoservices,DC=local" -Properties * | Select-Object -Property Surname, GivenName, Office, Title, Department, Manager, Company, OfficePhone, Country, State, StreetAddress | Export-Csv -path C:\path\to\csv.csv -NoTypeInformation
