@@ -1,6 +1,6 @@
 #Import users csv that was exported from AD
 $users = Import-Csv c:\path\to\csv
-
+Start-Transcript -Path C:\temp\log.log
 foreach ($user in $users){
 
     $updateSplat = @{
@@ -26,3 +26,4 @@ foreach ($user in $users){
         "ERROR: Updating failed for $($user.SamAccountName). Check logs"
     }
 }
+Stop-Transcript
