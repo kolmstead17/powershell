@@ -1,5 +1,5 @@
 $users = Get-ChildItem C:\Users
-
+Start-Transcript -Path c:\temp\log.log -Append
 foreach ($user in $users){
     $folder = "C:\users\" + $user + "\appdata\Local\Microsoft\Outlook"
     $folderPath = Test-Path -Path $folder
@@ -38,3 +38,4 @@ foreach ($user in $users){
         Write-Output $noFiles
     }
 }
+Stop-Transcript

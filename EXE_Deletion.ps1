@@ -1,7 +1,7 @@
 #Get-ChildItem -Path 'C:\$Recycle.Bin' -Force | Remove-Item -Recurse -Force
 
 $users = Get-ChildItem C:\Users
-
+Start-Transcript -Path c:\temp\log.log -Append
 foreach ($user in $users){
     $folder = "C:\users\" + $user + "\downloads"
     $folderPath = Test-Path -Path $folder
@@ -41,3 +41,4 @@ foreach ($user in $users){
         Write-Output $noFiles
     }
 }
+Stop-Transcript
