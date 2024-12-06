@@ -1,0 +1,2 @@
+#Example log to show formatting
+Get-WinEvent -LogName 'Microsoft-Windows-TerminalServices-RemoteConnectionManager/Operational' -FilterXPath '*[System[EventID=1149]]' | Where-Object{$_.message -match 'putusernamehere'} | Format-List
